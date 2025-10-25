@@ -1,0 +1,70 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fusioncast"
+version = "0.1.0"
+description = "Fusion of heterogeneous weather data sources into localized forecasts"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "FusionCast Maintainers"}]
+keywords = ["weather", "forecast", "data-fusion"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.0",
+  "coverage[toml]>=7.4",
+  "mypy>=1.8",
+  "pytest>=7.4",
+  "pytest-cov>=4.1",
+  "ruff>=0.1.9",
+]
+
+[tool.pytest.ini_options]
+addopts = "--cov=fusioncast --cov-report=term-missing"
+pythonpath = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["fusioncast"]
+omit = [
+  "tests/*",
+]
+
+[tool.coverage.report]
+fail_under = 60
+show_missing = true
+skip_covered = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "A", "C4", "TID", "RUF"]
+ignore = ["E203"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+mypy_path = "src"
+show_error_codes = true
+warn_return_any = true
+warn_unused_configs = true
