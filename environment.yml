@@ -1,0 +1,17 @@
+name: fusioncast
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - xarray
+  - netcdf4
+  
+  - jupyter
+  -pip
+  - pip:
+    - fastapi>=0.110
+    - uvicorn[standard]>=0.27
+    - pydantic>=2.6
+    - requests>=2.31
