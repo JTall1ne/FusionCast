@@ -63,6 +63,7 @@ ruff format .
 
 Run [mypy](http://mypy-lang.org/) in strict mode to ensure type safety:
 
+
 ```bash
 mypy src
 ```
