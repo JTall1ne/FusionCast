@@ -52,6 +52,21 @@ Run the following to check your code:
 ruff check .
 ```
 
+
+## Environment Configuration
+
+FusionCast uses several third-party APIs (for example, weather providers and real-time internet sources). To configure the required API keys:
+
+1. Copy the `.env.template` file in the repository root to a new file named `.env`.
+2. Open `.env` and fill in the environment variables with your own API keys (for example, `OPENAI_API_KEY`, `OPENWEATHERMAP_API_KEY`, `TWITTER_BEARER_TOKEN`, and others as needed).
+3. When running scripts or the application, the `.env` file will be automatically loaded so that your environment variables are available. Do **not** commit your `.env` file to version control—use `.env.template` for sharing example values.
+
+If you're running FusionCast inside a Docker container, you can pass the required environment variables using `--env-file .env` or specify them individually with `-e`. Ensure the container has access to your keys so that API calls succeed.
+
+
+
+
+
 To auto-fix lint and formatting issues:
 
 ```bash
